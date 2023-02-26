@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+}
+
+group 'com.technokratos'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    mvcVersion = '5.3.16'
+    jacksonVersion = '2.13.2'
+    lombokVersion = '1.18.22'
+}
+
+dependencies {
+    implementation "org.springframework:spring-context-support:${mvcVersion}"
+    implementation "org.springframework:spring-webmvc:${mvcVersion}"
+    implementation "org.springframework:spring-context:${mvcVersion}"
+    implementation "org.springframework:spring-aspects:${mvcVersion}"
+    implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+    implementation "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}"
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    implementation 'org.slf4j:slf4j-log4j12:1.7.30'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+    implementation 'com.github.jinahya:assertj-bean-validation:0.3.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
+}
+
+
+test {
+    useJUnitPlatform()
+}
