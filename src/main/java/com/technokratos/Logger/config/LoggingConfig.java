@@ -1,6 +1,6 @@
 package com.technokratos.Logger.config;
 
-import com.technokratos.Logger.aspects.*;
+import com.technokratos.Logger.Aspect.LoggingAspect;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
@@ -11,18 +11,8 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 public class LoggingConfig {
 
     @Bean
-    public AnnotationLoggingAspect annotationLoggingAspect() {
-        return new AnnotationLoggingAspect();
-    }
-
-    @Bean
-    public ControllerLoggingAspect controllerLoggingAspect() {
-        return new ControllerLoggingAspect();
-    }
-
-    @Bean
-    public ExceptionLoggingAspect exceptionLoggingAspect() {
-        return new ExceptionLoggingAspect();
+    public LoggingAspect loggingAspect() {
+        return new LoggingAspect();
     }
 
 }
